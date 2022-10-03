@@ -64,12 +64,7 @@
       })
     });
   </script>
-  <style>
-    .img-overlay,#example-plane {
-      opacity: 0;
-      visibility: hidden;
-    }
-  </style>
+
 </head>
 
 <body>
@@ -103,11 +98,11 @@
             <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#vegetaModel" animation-mixer>
             </a-entity> -->
     <a-entity id="example-target" mindar-image-target="targetIndex: 1">
-      <a-plane id="example-plane" src="#gokuRigged" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+      <a-plane id="example-plane" src="#gokuRigged" position="0 0 0" height="0.552" width="1" rotation="0 0 0" style="opacity: 0; visibility: hidden;">
         <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.4 0.4 0.4" src="#gokuRiggedModel" animation-mixer>
     </a-entity>
     <a-entity id="example-target" mindar-image-target="targetIndex: 2">
-      <a-plane id="example-plane" src="#gokuScan" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+      <a-plane id="example-plane" src="#gokuScan" position="0 0 0" height="0.552" width="1" rotation="0 0 0" style="opacity: 0; visibility: hidden;">
         <a-gltf-model rotation="1 1 1 " position="0 -0.25 0" scale="0.12 0.12 0.12" src="#gokuScanModel"
           animation-mixer>
     </a-entity>
