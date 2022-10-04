@@ -6,68 +6,13 @@
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const sceneEl = document.querySelector("a-scene");
-      const arSystem = sceneEl.systems["mindar-image-system"];
-      const exampleTarget = document.querySelectorAll("#example-target");
-      const examplePlane = document.querySelectorAll("#example-plane");
-      const startButton = document.querySelector("#example-start-button");
-      const stopButton = document.querySelector("#example-stop-button");
-      const pauseButton = document.querySelector("#example-pause-button");
-      const pauseKeepVideoButton = document.querySelector(
-        "#example-pause-keep-video-button"
-      );
-      const unpauseButton = document.querySelector("#example-unpause-button");
-      startButton.addEventListener("click", () => {
-        console.log("start");
-        arSystem.start(); // start AR
-      });
-      stopButton.addEventListener("click", () => {
-        arSystem.stop(); // stop AR
-      });
-      pauseButton.addEventListener("click", () => {
-        arSystem.pause(); // pause AR, keep video feed
-      });
-      pauseKeepVideoButton.addEventListener("click", () => {
-        arSystem.pause(true); // pause AR and video
-      });
-      unpauseButton.addEventListener("click", () => {
-        arSystem.unpause(); // unpause AR and video
-      });
-      // arReady event triggered when ready
-      sceneEl.addEventListener("arReady", (event) => {
-        // console.log("MindAR is ready")
-      });
-      // arError event triggered when something went wrong. Mostly browser compatbility issue
-      sceneEl.addEventListener("arError", (event) => {
-        // console.log("MindAR failed to start")
-      });
-      // detect target found
-      exampleTarget.forEach(item => {
-        item.addEventListener("targetFound", (event) => {
-          console.log("target found");
-        });
-      })
-      // detect target lost
-      exampleTarget.forEach(item => {
-        item.addEventListener("targetLost", (event) => {
-          console.log("target lost");
-        });
-      })
-      // detect click event
-      examplePlane.forEach(item => {
-        item.addEventListener("click", (event) => {
-          console.log("plane click");
-        });
 
-      })
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
+  <div class="app"></div>
   <div style="position: absolute; z-index: 1000">
     <button id="example-start-button">Start</button>
     <button id="example-pause-button">Pause</button>
@@ -79,7 +24,6 @@
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
-      <!-- <a-asset-item id="vegetaModel" src="https://cdn.jsdelivr.net/gh/taican-1002/3D-Image-Trackings@main//vegeta-model/scene.gltf"></a-asset-item> -->
       <img class="img-overlay" id="gokuRigged" src="./img/goku_rigged.jpg" />
       <a-asset-item id="gokuRiggedModel"
         src="https://cdn.jsdelivr.net/gh/taican-1002/3D-Image-Trackings@main//goku_rigged__animated/scene.gltf">
@@ -94,24 +38,22 @@
     <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
       raycaster="near: 10; far: 10000"></a-camera>
 
-    <!-- <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#vegetaModel" animation-mixer>
-            </a-entity> -->
 
     <a-entity id="example-target" mindar-image-target="targetIndex: 1">
       <!-- <a-plane id="example-plane" src="#gokuRigged" position="0 0 0" height="0.552" width="1" rotation="0 0 0"> -->
-        <a-plane id="example-plane" class="clickable"  displacement-scale="0"  position="0 0 0" height="0.552" width="1" rotation="0 0 0">
-          <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.4 0.4 0.4" src="#gokuRiggedModel" animation-mixer>
-        </a-plane>
+      <a-plane id="example-plane" class="clickable" position="0 0 0" height="0" width="0" rotation="0 0 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.4 0.4 0.4" src="#gokuRiggedModel" animation-mixer>
+      </a-plane>
     </a-entity>
     <a-entity id="example-target" mindar-image-target="targetIndex: 2">
       <!-- <a-plane id="example-plane" src="#gokuScan" position="0 0 0" height="0.552" width="1" rotation="0 0 0"> -->
-        <a-plane id="example-plane" class="clickable" displacement-scale="0"  position="0 0 0" height="0.552" width="1" rotation="0 0 0">
+        <a-plane id="example-plane" class="clickable" position="0 0 0" height="0" width="0" rotation="0 0 0">
           <a-gltf-model rotation="1 1 1 " position="0 -0.25 0" scale="0.12 0.12 0.12" src="#gokuScanModel"
-            animation-mixer>
+          animation-mixer>
         </a-plane>
-    </a-entity>
-  </a-scene>
+      </a-entity>
+    </a-scene>
+  <script src="./script.js"></script>
 </body>
 
 </html>
