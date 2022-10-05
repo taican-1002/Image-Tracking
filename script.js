@@ -4,17 +4,17 @@ var app = document.querySelector("#scene_camera");
 const exampleTarget = document.querySelectorAll("#example-target");
 const examplePlane = document.querySelectorAll("#example-plane");
 
-examplePlane.forEach((plane) => {
-  plane.onclick = () => {
-    exampleTarget.forEach((target) => {
-      target.setAttribute(
-        "animation",
-        "property: rotation; to: 0 360 0; loop: true; dur: 10000"
-      );
-    });
-    console.log(exampleTarget);
-  };
-});
+// examplePlane.forEach((plane) => {
+//   plane.onclick = () => {
+//     exampleTarget.forEach((target) => {
+//       target.setAttribute(
+//         "animation",
+//         "property: rotation; to: 0 360 0; loop: true; dur: 10000"
+//       );
+//     });
+//     console.log(exampleTarget);
+//   };
+// });
 
 function fetchApi() {
   axios
