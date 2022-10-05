@@ -2,7 +2,6 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./style.css">
   <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
@@ -40,16 +39,17 @@
       raycaster="near: 10; far: 10000"></a-camera>
 
 
-    <a-entity id="example-target" mindar-image-target="targetIndex: 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+    <a-entity id="example-target" mindar-image-target="targetIndex: 1">
       <!-- <a-plane id="example-plane" src="#gokuRigged" position="0 0 0" height="0.552" width="1" rotation="0 0 0"> -->
-      <a-plane src="#gokuRigged" id="example-plane" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" >
-        <a-gltf-model rotation="0 0 0" position="0 -0.25 0" scale="0.4 0.4 0.4" src="#gokuRiggedModel" animation-mixer>
+      <a-plane src="#gokuRigged" id="example-plane" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.4 0.4 0.4" src="#gokuRiggedModel" >
       </a-plane>
     </a-entity>
     <a-entity id="example-target" mindar-image-target="targetIndex: 2" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
       <!-- <a-plane id="example-plane" src="#gokuScan" position="0 0 0" height="0.552" width="1" rotation="0 0 0"> -->
         <a-plane src="#gokuScan" id="example-plane" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0">
-          <a-gltf-model rotation="0 0 0" position="0 -0.25 0" scale="0.12 0.12 0.12" src="#gokuScanModel" animation-mixer>
+          <a-gltf-model rotation="1 1 1 " position="0 -0.25 0" scale="0.12 0.12 0.12" src="#gokuScanModel"
+          >
           <!-- animation-mixer -->
         </a-plane>
       </a-entity>
