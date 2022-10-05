@@ -1,20 +1,26 @@
-var apiUrl = "https://pokeapi.co/api/v2/pokemon/ditto/";
-var app = document.querySelector(".app");
+var apiUrl = "https://633bea5bf11701a65f6aa1a8.mockapi.io/api/image_ar";
+var app = document.querySelector("#scene_camera");
 
 function fetchApi() {
   axios
     .get(apiUrl)
     .then((res) => {
-      // Work with JSON data here
       console.log(res.data);
-      app.innerHTML =
-        "<ul>" +
-        res.data.game_indices
-          .map(function (item) {
-            return "<li>" + item.game_index + "</li>";
-          })
-          .join("") +
-        "</ul>";
+      // app.innerHTML =
+      //   "<a-assets>" +
+      //   res.data
+      //     .map(function (item) {
+      //       return "<a-assets>
+      // <img src="" id="" />
+      // <a-asset-item src="" id=""></a-asset-item>
+      // </a-assets>";
+      //     })
+      //     .join("") +
+      //   "</a-assets>" + <a-entity>
+      // <a-plane>
+      //   <a-gltf-model></a-gltf-model>
+      // </a-plane>
+      // </a-entity>;
     })
     .catch((err) => {
       console.log(err);
