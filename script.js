@@ -1,6 +1,18 @@
 var apiUrl = "https://633bea5bf11701a65f6aa1a8.mockapi.io/api/image_ar";
 var app = document.querySelector("#scene_camera");
 
+const exampleTarget = document.querySelectorAll("#example-target");
+const examplePlane = document.querySelectorAll("#example-plane");
+console.log(exampleTarget);
+
+examplePlane.forEach((plane) => {
+  plane.onclick = () => {
+    exampleTarget.forEach((target) => {
+      console.log(target);
+    });
+  };
+});
+
 function fetchApi() {
   axios
     .get(apiUrl)
