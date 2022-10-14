@@ -33,10 +33,10 @@ const getAllAttributes = (el) =>
         12,
         res.data.data[0].image_compiler.path.length
       );
-      // a_scene.setAttribute(
-      //   "mindar-image",
-      //   `imageTargetSrc: ${baseUrl}${path};maxTrack: 5;autoStart: false;`
-      // );
+      a_scene.setAttribute(
+        "mindar-image",
+        `imageTargetSrc: ${baseUrl}${path};maxTrack: 5;autoStart: false;`
+      );
     })
     .catch((err) => console.log(err));
 })();
