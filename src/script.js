@@ -16,14 +16,14 @@ examplePlane.forEach((plane) => {
     );
   };
 });
-// const getAllAttributes = (el) =>
-//   el.getAttributeNames().reduce(
-//     (obj, name) => ({
-//       ...obj,
-//       [name]: el.getAttribute(name),
-//     }),
-//     {}
-//   );
+const getAllAttributes = (el) =>
+  el.getAttributeNames().reduce(
+    (obj, name) => ({
+      ...obj,
+      [name]: el.getAttribute(name),
+    }),
+    {}
+  );
 
 (async function getImageTargetsCompiler() {
   await axios
@@ -33,10 +33,10 @@ examplePlane.forEach((plane) => {
         12,
         res.data.data[0].image_compiler.path.length
       );
-      a_scene.setAttribute(
-        "mindar-image",
-        `imageTargetSrc: ${baseUrl}${path};maxTrack: 5;autoStart: false;`
-      );
+      // a_scene.setAttribute(
+      //   "mindar-image",
+      //   `imageTargetSrc: ${baseUrl}${path};maxTrack: 5;autoStart: false;`
+      // );
     })
     .catch((err) => console.log(err));
 })();
