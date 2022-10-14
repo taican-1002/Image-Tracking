@@ -1,0 +1,11 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (min-aspect-ratio: 1 / 1) {
+  body .mindar-ui-scanning .scanning {
+    width: 100vh;
+    height: 80vh;
+  }
+}
